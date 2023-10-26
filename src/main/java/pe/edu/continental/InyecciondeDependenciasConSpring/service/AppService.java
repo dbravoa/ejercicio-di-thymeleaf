@@ -5,12 +5,17 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.continental.InyecciondeDependenciasConSpring.model.Equipo;
+import pe.edu.continental.InyecciondeDependenciasConSpring.repository.AppRepository;
 
 @Service
 public class AppService implements IAppService {
+
+    @Autowired
+    AppRepository appRepository;
 
     private List<Equipo> listaEquipos = null;
 
@@ -18,9 +23,9 @@ public class AppService implements IAppService {
         listaEquipos = new ArrayList<Equipo>();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         try {
-            listaEquipos.add(new Equipo("Sporting Cristal", 100000000.00f, sdf.parse("13-12-1955")));
-            listaEquipos.add(new Equipo("Alianza Lima", 300000000.00f, sdf.parse("15-02-1901")));
-            listaEquipos.add(new Equipo("Sport Boys", 500000.00f, sdf.parse("28-07-1927")));
+            listaEquipos.add(new Equipo(1L, "Sporting Cristal", 100000000.00f, sdf.parse("13-12-1955")));
+            listaEquipos.add(new Equipo(2L, "Alianza Lima", 300000000.00f, sdf.parse("15-02-1901")));
+            listaEquipos.add(new Equipo(3L, "Sport Boys", 500000.00f, sdf.parse("28-07-1927")));
         } catch (ParseException e) {
             throw new Exception(e);
         }
