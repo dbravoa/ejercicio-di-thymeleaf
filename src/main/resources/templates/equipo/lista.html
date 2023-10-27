@@ -21,6 +21,7 @@
                 <th th:text="${equipo.nombre}"></th>
                 <th th:text="${equipo.fechaFundacion}"></th>
                 <th th:text="${equipo.presupuesto}"></th>
+                <th><a th:href="@{/equipo/{id} (id=${equipo.id})}">Detalle</a></th>
             </tr>
         </tbody>
     </table>

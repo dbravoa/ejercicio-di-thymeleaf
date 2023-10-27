@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,13 @@ public class AppController {
 
     @Autowired
     public IAppService appService;
+
+    @GetMapping("/{id}")
+    public String buscarEquipo(@PathVariable Long id, Model model) {
+        Equipo equipo = appService.buscarEquipo(id).get();
+        model.addAttribute("equipo", equipo);
+        return "equipo/detalle";
+    }
 
     @GetMapping("/lista")
     public String listarEquipos(Model model) {
