@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Equipos</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre del Equipo</th>
+                <th>Fecha de Fundacion</th>
+                <th>Presupuesto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="equipo:${listaEquipos}">
+                <th th:text="${equipo.nombre}"></th>
+                <th th:text="${equipo.fechaFundacion}"></th>
+                <th th:text="${equipo.presupuesto}"></th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
